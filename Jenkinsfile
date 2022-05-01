@@ -52,7 +52,7 @@ pipeline {
                 }
             }
             steps{
-                container('docker') {
+                container('docker-compose') {
                     sh 'docker-compose -v'
                     sh 'echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin'
                     sh 'docker build -t $DOCKER_REGISTRY:$BUILD_NUMBER .'
